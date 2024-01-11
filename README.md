@@ -15,22 +15,52 @@ Here I am interested in three usecases using Markdown (md) as a source format:
 4. **Single documentation source**:
     Bonus point as having the same source for numbers 2 and 3.
 
+Required features would be:
+
+* publication quality
+* SVG images support
+* code blocks with syntax highlighting
+
+## TODO
+
+* verify everything
+* provide sources
+
+## Resources
+
+* [Documentation on input/output formats](https://pandoc.org/MANUAL.html#general-options)
+* [Demos][demos]
+
 ## Installation
 
 TODO
 
 ## Markdown to Slides
 
-TODO
+From [demos] number 8 looks nice:
+
+```
+pandoc -t beamer SLIDES -o example8.pdf
+```
 
 Some official documentation: https://pandoc.org/chunkedhtml-demo/10-slide-shows.html
 
 ## Markdown to PDF
 
-TODO
+From [demos] number 14 looks nice:
+
+```
+pandoc -N --variable "geometry=margin=1.2in" --variable mainfont="Palatino" --variable sansfont="Helvetica" --variable monofont="Menlo" --variable fontsize=12pt --variable version=2.0 MANUAL.txt --include-in-header fancyheaders.tex --pdf-engine=lualatex --toc -o example14.pdf
+```
 
 ## Markdown to HTML
 
-TODO
+Multiple files:
 
-Some guides: https://pandoc.org/demos.html
+```
+pandoc -t chunkedhtml source.md -o chunked.html
+```
+
+[Some other examples.][demos]
+
+[demos]: https://pandoc.org/demos.html
